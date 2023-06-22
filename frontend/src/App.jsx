@@ -1,20 +1,38 @@
 import "./App.css";
-//import Auth from "./pages/Auth/Auth";
-//import Home from "./pages/home/Home";
+import Home from "./components/Home/Home";
 //import Profile from "./pages/Profile/Profile";
-//import Landing from "./components/Landing";
-import Auth from './components/authenticate/Auth';
+import Landing from "./components/landing/Landing";
+import Auth from './components/auth/Auth';
+import Subscribe from './components/subscription/Subscribe';
+import { Box } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from '@mui/material/CssBaseline';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: "'Plus Jakarta Sans', 'sans-serif'",
+  },
+  palette: {
+    mode: 'light',
+  }
+});
+
 
 function App() {
   return (
-    <div className="App">
-        <div className="blur" style={{top: '-18%', right: '0'}}></div>
-        <div className="blur" style={{top: '36%', left: '-8rem'}}></div>
-        {/*<Home/>
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
+      <Box className="App">
+        {/*<Box className="blur" style={{top: '-18%', right: '0'}}></Box>
+        <Box className="blur" style={{top: '36%', left: '-12rem'}}></Box>
+        <Home/>
         <Profile/>
-        <Landing/> */}
-        <Auth />
-    </div>
+        <Auth/> //done
+        <Landing /> //done 
+        <Subscribe /> //done */}
+        <Home/>
+      </Box>
+    </ThemeProvider>
   );
 }
 

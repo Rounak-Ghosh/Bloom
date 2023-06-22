@@ -1,0 +1,27 @@
+.search{
+      display: flex;
+      width: 112%;
+      border-radius: 10px;
+      padding: 5px;
+      box-shadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.64);
+      align-items: center;
+      justify-content: space-around;
+}
+
+.search :focus{
+      color: purple;
+}
+
+.searchIcon :hover{
+      color: red;
+      cursor: pointer;
+      transform: scale(1.2);
+}
+
+.searchInput {
+      background-color: transparent;
+      border:none;
+      outline: none;
+      font-weight: 600;
+}

@@ -1,0 +1,38 @@
+import React from "react";
+import { Box, Typography, Paper } from "@mui/material";
+import Avatar from '@mui/material/Avatar';
+import Cover from "../../../img/cover.png";
+import Profile from "../../../img/profile.png";
+import "./ProfileCard.css";
+
+function ProfileCard() {
+      return (
+            <Box className="profileCard">
+                  <Box className="profileImages">
+                        <img src={Cover} alt="cover pic" />
+                        <Avatar className="avatar" sx={{height: 96, width: 96}} alt="profile pic" src={Profile} />
+                  </Box>
+                  <Box className="profileName">
+                        <span>Rounak Ghosh</span>
+                        <span>Full Stack Developer</span>
+                  </Box>
+                  <Box className="followStats">
+                        <hr />
+                        <Box>
+                              <Box className="follow">
+                                    <span>680</span>
+                                    <span>Consumers</span>
+                              </Box>
+                              <Box className="vl"></Box>
+                              <Box className="follow">
+                                    <span>12</span>
+                                    <span>Creators</span>
+                              </Box>
+                        </Box>
+                  </Box>
+                  <Typography className="myProfile">My Profile</Typography>
+            </Box>
+      );
+}
+
+export default ProfileCard;

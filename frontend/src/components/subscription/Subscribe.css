@@ -1,0 +1,148 @@
+body {
+      -webkit-font-smoothing: antialiased;
+}
+
+section {
+      min-height: 100vh;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+}
+
+.pricing {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: center;
+      justify-content: center;
+      width: 100%;
+}
+
+.pricing-item {
+      position: relative;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: stretch;
+      align-items: stretch;
+      text-align: center;
+      -webkit-flex: 0 1 330px;
+      flex: 0 1 330px;
+}
+
+.pricing-action {
+      color: inherit;
+      border: none;
+      background: none;
+}
+.pricing-action:focus {
+      outline: none;
+}
+
+.pricing-feature-list {
+      text-align: left;
+}
+
+.pricing-palden .pricing-item {
+      color: #84697c;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(46, 59, 125, 0.23);
+      border-radius: 20px 20px 10px 10px;
+      margin: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+      .pricing-palden .pricing-itrem {
+            margin: 1rem -0.5rem;
+      }
+
+      .pricing-palden .pricing__item--featured {
+            margin: 0;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(46, 59, 125, 0.23);
+      }
+}
+
+.pricing-palden .pricing-deco {
+      border-radius: 10px 10px 0 0;
+      background: #391ddbe7;
+      padding: 4rem 0;
+      position: relative;
+}
+
+.pricing-palden .pricing-deco-img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 160px;
+}
+
+.pricing-palden .pricing-title {
+      font-size: 0.75rem;
+      margin-top: 5rem;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: #fff;
+}
+
+.pricing-palden .deco-layer {
+      -webkit-transition: -webkit-transform 0.5s;
+      transition: transform 0.5s;
+}
+
+.pricing-palden .pricing-item:hover .deco-layer--1 {
+      -webkit-transform: translate3d(15px, 0, 0);
+      transform: translate3d(15px, 0, 0);
+}
+
+.pricing-palden .pricing-item:hover .deco-layer--2 {
+      -webkit-transform: translate3d(-15px, 0, 0);
+      transform: translate3d(-15px, 0, 0);
+}
+
+.pricing-palden .pricing-price {
+      font-size: 5rem;
+      font-weight: bold;
+      padding: 0;
+      color: #fff;
+      margin: 0 0 0.25rem 0;
+      line-height: 0.75;
+}
+
+.pricing-palden .pricing-currency {
+      font-size: 2rem;
+      vertical-align: top;
+}
+
+.pricing-palden .pricing-period {
+      font-size: 1.5rem;
+}
+
+.pricing-palden .pricing-feature-list {
+      margin: 0;
+      padding: 1.2rem 0 2rem;
+      list-style: none;
+      text-align: center;
+}
+
+.pricing-palden .pricing-feature {
+      padding: 1rem 0;
+}
+
+.pricing-palden .pricing-action {
+      font-weight: bold;
+      margin: auto 3rem 2rem 3rem;
+      padding: 1rem 2rem;
+      color: #fff;
+      border-radius: 30px;
+      background: #381DDB;
+      -webkit-transition: background-color 0.3s;
+      transition: background-color 0.3s;
+}
+
+.pricing-palden .pricing-action:hover, .pricing-palden .pricing-action:focus {
+      background-color: #D61F2C;
+}
