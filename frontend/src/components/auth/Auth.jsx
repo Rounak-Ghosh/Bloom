@@ -1,91 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
 import "./Auth.css";
 import Logo from "../../img/logo.png";
+import { logIn, signUp } from "../../actions/AuthAction";
 
 function Auth() {
+      const dispatch = useDispatch();
+      const loading = useSelector((state) => state.authReducer.loading);
+      console.log(loading);
+      const [isSignUp, setIsSignUp] = useState(false);
+      const [data, setData] = useState({fullname: "", username: "", password: "", confirmpass: ""});
+
+      const handleChange = (event) => {
+        setData({...data, [event.target.name]: event.target.value});
+      };
+
+      const [confirmPass, setConfirmPass] = useState(true);
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        if(isSignUp) {
+          data.password===data.confirmpass ? dispatch(signUp(data)) : setConfirmPass(false);
+        } else {
+          dispatch(logIn(data));
+        }
+      };
+
       return (
-            <div className="auth">
-                  <div className="left">
-                        <img src={Logo} alt="logo" />
-                        <div className="tagline">
-                              <h1>BLOOM</h1>
-                              <h6>Where your connections blossom</h6>
-                        </div>
-                  </div>
-                  <SignUp />
-            </div>
-      );
+        <Box className="auth">
+          {/* Left Side */}
+          <Box className="left">
+                <img src={Logo} alt="logo" />
+                <Box className="tagline">
+                      <h1>BLOOM</h1>
+                      <h6>Where your connections blossom</h6>
+                </Box>
+          </Box>
 
-      function LogIn() {
-            return(
-                  <div className="right">
-                    <form className="infoForm authForm">
-                      <div className="heading">
-                        <h1>Welcome back</h1>
-                        <p className="subtitle">We've missed you! Please sign in to catch up asap</p>
-                      </div>
-                      
-                      <div>
-                        <input className="infoInput" name="username" type="text" placeholder="Enter your username"/>
-                      </div>
+          {/* Right Side */}
+          <Box className="right">
+            <form className="infoForm authForm" onSubmit={handleSubmit}>
+              <Box className="heading">
+                <h1>{isSignUp ? "Create Account" : "Welcome Back"}</h1>
+                <p className="subtitle">{isSignUp ? "Sign up to join the booming community" : "We've missed you! Please sign in to catch up asap"}</p>
+              </Box>
+              {isSignUp && (
+                <Box>
+                  <input required className="infoInput" name="fullname" type="text" placeholder="Enter your full name" onChange={handleChange}/>
+                </Box>
+              )}
+
+              <Box>
+                <input required className="infoInput" name="username" type="text"  placeholder="Enter your username" onChange={handleChange}/>
+              </Box>
+
+              <Box>
+                <input required className="infoInput" name="password" type="password" placeholder="Password" onChange={handleChange}/>
+              </Box>
               
-                      <div>
-                        <input className="infoInput" name="password" type="password" placeholder="Enter your password"/>
-                      </div>
-                      
-                      <div className="check-forgot">
-                        <div className="l">
-                          <input className="checkbox" type="checkbox" value="remember-me" id="flexCheckDefault"></input>
-                          <label>Remember me</label>
-                        </div>
-                        <div className="r">
-                        <label><a href="#">Forgot Password</a></label>
-                        </div>
-                      </div>
-
-                      <div className="login-signup">
-                        <button className="loginButton">Log in</button>
-                        <p>Don't have an account? <a href="#">Sign up</a> now !!</p>
-                      </div>
-                    </form>
-                  </div>
-            );
-      }
-
-      function SignUp() {
-            return (
-                  <div className="right">
-                    <form className="infoForm authForm">
-                      <div className="heading">
-                        <h1>Create Account</h1>
-                        <p className="subtitle">Sign up to join the booming community</p>
-                      </div>
-
-                      <div>
-                        <input className="infoInput" name="fullname" type="text" placeholder="Enter your full name"/>
-                      </div>
-      
-                      <div>
-                        <input type="text" className="infoInput" name="username" placeholder="Enter your username"/>
-                      </div>
-      
-                      <div>
-                        <input className="infoInput" name="password" type="text" placeholder="Password"/>
-                      </div>
-      
-                      <div>
-                        <input className="infoInput" name="confirmpass" type="text" placeholder="Confirm Password"/>
-                      </div>
-
-                      <div className="login-signup">
-                          <button className="loginButton" type="submit">Signup</button>
-                          <p>Already have an account? <a href="#">Login </a>!!</p>
-                      </div>
-                      
+              {isSignUp && (
+                <Box>
+                  <input required className="infoInput" name="confirmpass" type="password" placeholder="Confirm Password" onChange={handleChange}/>
+                </Box>
+              )}     
+              <Box sx={{display: confirmPass? "none !important" : "block !important"}}>
+                <Alert severity="error">Confirm Password is not matched</Alert>               
+              </Box>
+              
+              <Box className="login-signup">
+                  <button className="loginButton" type="submit" disabled={loading}>{isSignUp ? "Signup" : "Log in"}</button>
+                  <p>{isSignUp ? "Already have an account?" : "Don't have an account?"}<a href="#" onClick={()=> setIsSignUp((prev)=>!prev)}>{isSignUp ? " Login " : " Signup now"}</a>!!</p>
+              </Box>
             </form>
-          </div>
-        );
-      }
+          </Box>
+        </Box>
+      );
 }
 
 export default Auth;

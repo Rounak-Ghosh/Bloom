@@ -1,10 +1,9 @@
 * {
-      --bg-color: #f3f3f3;
       --yellow: #f5c32c;
       --orange: #fca61f;
       --black: #242d49;
       --blue: #9CB6F7;
-      --gray: rgba(36, 45, 73, 0.65);
+      --gray: #242d49a6;
       --profileShadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.25);
       --hrColor: #cfcdcd;
       --cardColor: rgba(255, 255, 255, 0.64);
@@ -12,15 +11,16 @@
       --inputColor: rgba(40, 52, 62, 0.07);
       --photo: #4CB256;
       --video: #4A4EB7;
-      --location: #EF5757;
-    --shedule: #E1AE4A;
+      --location: #fc1818;
+      --shedule: #f3b63b;
+      --bloom: #CB29D1;
 }
-    
+
 .App{
       overflow: hidden;
       color: var(--black);
-      background: var(--bg-color);
       padding: 1rem 1rem;
+      height: 100vh;
 }
 
 .blur{
@@ -30,24 +30,6 @@
       border-radius: 50%;
       background: var(--blue);
       filter: blur(64px);
-}
-
-.button{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      border:none;
-      border-radius: 0.5rem;
-      background: var(--buttonBg);
-      transition:all 100ms ease-out;
-}
-
-.button:hover{
-      cursor: pointer;
-      color: var(--orange);
-      background: transparent;
-      border: 2px solid var(--orange);
 }
 
 ::-webkit-scrollbar{
