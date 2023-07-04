@@ -4,8 +4,18 @@ import Avatar from '@mui/material/Avatar';
 import Cover from "../../../img/cover.png";
 import Profile from "../../../img/profile.png";
 import "./ProfileCard.css";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../../actions/AuthAction";
+
 
 function ProfileCard() {
+      const dispatch = useDispatch();
+      const handleLogout = () => {
+            console.log("Logout!");
+            console.log(logOut);
+            dispatch(logOut()); //not working
+      }
+
       return (
             <Box className="profileCard">
                   <Box className="profileImages">
@@ -20,17 +30,17 @@ function ProfileCard() {
                         <hr />
                         <Box>
                               <Box className="follow">
-                                    <span>680</span>
-                                    <span>Consumers</span>
+                                    <span>86</span>
+                                    <span>Followers</span> 
                               </Box>
                               <Box className="vl"></Box>
                               <Box className="follow">
                                     <span>12</span>
-                                    <span>Creators</span>
+                                    <span>Following</span>
                               </Box>
                         </Box>
                   </Box>
-                  <Typography className="myProfile">My Profile</Typography>
+                  <Typography className="logout" onClick={handleLogout} >Logout</Typography>
             </Box>
       );
 }

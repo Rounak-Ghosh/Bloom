@@ -9,6 +9,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from '@mui/material/CssBaseline';
 import { Routes, Route, Navigate, useRoutes } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "@stripe/stripe-js";
 
 const theme = createTheme({
       typography: {
@@ -32,6 +33,7 @@ function App() {
                   <Route path="/" element = {user? <Navigate to = "home" /> : <Navigate to = "auth" />} />
                   <Route path="/home" element = {user? <Home/> : <Navigate to="../auth"/>} />
                   <Route path="/auth" element = {user? <Home/> : <Auth/>} />
+                  <Route path="/subscribe" element = {user? <Subscribe /> : <Navigate to="../home" />} />
             </Routes>
             </Box>
       </ThemeProvider>

@@ -9,7 +9,6 @@ import { logIn, signUp } from "../../actions/AuthAction";
 function Auth() {
       const dispatch = useDispatch();
       const loading = useSelector((state) => state.authReducer.loading);
-      console.log(loading);
       const [isSignUp, setIsSignUp] = useState(false);
       const [data, setData] = useState({fullname: "", username: "", password: "", confirmpass: ""});
 
